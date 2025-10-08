@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AbacusDesk AI-SEO | Drive More Traffic</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .mauticform-page-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        /* Custom styles for the glassmorphism design and color palette */
+        :root {
+            --primary-color: #ef9b11;
+            --secondary-color: #343a40;
+            --background-color: #f8f9fa; /* Slightly brighter background */
+            --text-color: #212529;
+            --subtle-text-color: #495057;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Decorative background blobs for glassmorphism effect */
+        .blob1 {
+            position: absolute;
+            width: 450px;
+            height: 450px;
+            background: linear-gradient(180deg, rgba(239, 155, 17, 0.3) 0%, rgba(239, 155, 17, 0.05) 100%);
+            border-radius: 50%;
+            top: -200px;
+            left: -200px;
+            filter: blur(120px);
+            z-index: 0;
+            animation: moveBlob1 25s infinite alternate ease-in-out;
+        }
+
+        .blob2 {
+            position: absolute;
+            width: 550px;
+            height: 550px;
+            background: linear-gradient(180deg, rgba(52, 58, 64, 0.15) 0%, rgba(52, 58, 64, 0.03) 100%);
+            border-radius: 50%;
+            bottom: 5%;
+            right: -250px;
+            filter: blur(140px);
+            z-index: 0;
+            animation: moveBlob2 30s infinite alternate ease-in-out;
+        }
+        
+        main, header, footer {
+            position: relative;
+            z-index: 1;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.05); /* Softer shadow */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-6px); /* More subtle hover */
+            box-shadow: 0 8px 30px 0 rgba(0, 0, 0, 0.08);
+        }
+        
+        .glass-button {
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: all 0.2s ease-in-out;
+        }
+        
+        .glass-button:hover {
+             background: rgba(255, 255, 255, 0.5);
+             box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+        }
+        
+        .primary-button {
+            background-color: var(--primary-color);
+            color: white;
+            box-shadow: 0 6px 20px rgba(239, 155, 17, 0.25); /* Refined shadow */
+            transition: all 0.3s ease;
+        }
+
+        .primary-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(239, 155, 17, 0.3);
+        }
+        
+        .section-title {
+            color: var(--secondary-color);
+        }
+        
+        .primary-text {
+            color: var(--primary-color);
+        }
+
+        header.scrolled {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        /* Animation Base Styles */
+        .fade-in-section, .animate-item {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in-section.is-visible, .animate-item.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Keyframes for animations */
+        @keyframes moveBlob1 {
+            from { transform: translate(-20px, -20px) scale(1); }
+            to { transform: translate(20px, 30px) scale(1.1); }
+        }
+
+        @keyframes moveBlob2 {
+            from { transform: translate(10px, -20px) scale(1); }
+            to { transform: translate(-30px, 20px) scale(1.2); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .anim-fade-in {
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        .anim-slide-in-up {
+            animation: slideInUp 0.8s ease-out forwards;
+        }
+    </style>
+</head>
+<body>
+    <div class="blob1"></div>
+    <div class="blob2"></div>
+
+    <!-- Header -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4">
+             <div class="flex items-center justify-between p-3 rounded-2xl">
+                <a href="https://www.abacusdesk.com/" target="_blank">
+                    <img src="https://www.abacusdesk.com/wp-content/uploads/2021/09/abacusdesk-logo.svg" alt="AbacusDesk Logo" class="h-8 md:h-10">
+                </a>
+                <a href="#lead-capture" class="primary-button font-bold py-2 px-4 md:py-3 md:px-6 text-sm md:text-base rounded-lg">
+                    Get Free AI-SEO Audit
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-32">
+
+        <!-- Hero Section -->
+        <section class="py-20 md:py-28">
+            <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+                <div class="text-center md:text-left">
+                    <h1 class="text-4xl md:text-6xl font-extrabold section-title leading-tight anim-slide-in-up" style="animation-delay: 0.4s;">
+                        AI-SEO That Drives <span class="primary-text">122% More Traffic</span>
+                    </h1>
+                    <p class="mt-6 text-lg md:text-xl max-w-xl mx-auto md:mx-0 text-gray-600 anim-slide-in-up" style="animation-delay: 0.6s;">
+                        From plywood to tech, bathware to automotive — we’ve helped brands across industries dominate AI search results. Be next.
+                    </p>
+                    <div class="mt-10 anim-slide-in-up" style="animation-delay: 0.8s;">
+                        <a href="#lead-capture" class="inline-block primary-button font-bold py-4 px-8 text-lg rounded-xl">
+                            Get My Free AI-SEO Audit
+                        </a>
+                    </div>
+                </div>
+                <div class="anim-fade-in" style="animation-delay: 1s;">
+                    
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop" alt="Abstract AI and data visualization representing SEO growth" class="rounded-3xl shadow-xl w-full object-cover aspect-[4/3]">
+                </div>
+            </div>
+        </section>
+
+        <!-- Proven Results (Reasons to Believe) -->
+        <section class="py-16 md:py-24">
+            <div class="container mx-auto px-6">
+                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="glass-card p-8 text-center animate-item">
+                        <div class="text-5xl font-bold primary-text">122%</div>
+                        <p class="mt-2 font-semibold">Increase in Organic Traffic</p>
+                    </div>
+                     <div class="glass-card p-8 text-center animate-item" style="transition-delay: 150ms;">
+                        <div class="text-5xl font-bold primary-text">50%</div>
+                        <p class="mt-2 font-semibold">Faster Rankings vs Traditional SEO</p>
+                    </div>
+                     <div class="glass-card p-8 text-center animate-item" style="transition-delay: 300ms;">
+                        <div class="text-5xl font-bold primary-text">200+</div>
+                        <p class="mt-2 font-semibold">Businesses Scaled</p>
+                    </div>
+                    <div class="glass-card p-8 text-center animate-item" style="transition-delay: 450ms;">
+                        <div class="text-5xl font-bold primary-text">6+</div>
+                        <p class="mt-2 font-semibold">Industries Served</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How it Works Section -->
+        <section class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto fade-in-section">
+                    <h2 class="text-3xl md:text-4xl font-bold section-title">Our AI-SEO Framework</h2>
+                     <p class="mt-4 text-lg text-gray-600">A continuous loop of AI-powered strategy and optimization for market-leading results.</p>
+                </div>
+                <div class="mt-16 grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+                    <!-- Step 1 -->
+                    <div class="flex flex-col items-center animate-item">
+                        <div class="bg-gray-100 rounded-full w-24 h-24 flex items-center justify-center transition-all duration-300 hover:bg-primary-color/10">
+                            <svg class="w-12 h-12 primary-text" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                        </div>
+                        <h3 class="mt-4 text-xl font-bold">AI Keyword Intelligence</h3>
+                        <p class="mt-2 text-gray-600">Find opportunities your competitors miss.</p>
+                    </div>
+                    <!-- Step 2 -->
+                     <div class="flex flex-col items-center animate-item" style="transition-delay: 150ms;">
+                        <div class="bg-gray-100 rounded-full w-24 h-24 flex items-center justify-center transition-all duration-300 hover:bg-primary-color/10">
+                            <svg class="w-12 h-12 primary-text" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+                        </div>
+                        <h3 class="mt-4 text-xl font-bold">Conversational Content</h3>
+                        <p class="mt-2 text-gray-600">Built for Google, Gemini & AI search.</p>
+                    </div>
+                    <!-- Step 3 -->
+                     <div class="flex flex-col items-center animate-item" style="transition-delay: 300ms;">
+                        <div class="bg-gray-100 rounded-full w-24 h-24 flex items-center justify-center transition-all duration-300 hover:bg-primary-color/10">
+                           <svg class="w-12 h-12 primary-text" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                        </div>
+                        <h3 class="mt-4 text-xl font-bold">AI Visibility Tracking</h3>
+                        <p class="mt-2 text-gray-600">Monitor SERP & AI placements.</p>
+                    </div>
+                    <!-- Step 4 -->
+                     <div class="flex flex-col items-center animate-item" style="transition-delay: 450ms;">
+                        <div class="bg-gray-100 rounded-full w-24 h-24 flex items-center justify-center transition-all duration-300 hover:bg-primary-color/10">
+                           <svg class="w-12 h-12 primary-text" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        </div>
+                        <h3 class="mt-4 text-xl font-bold">Continuous Learning</h3>
+                        <p class="mt-2 text-gray-600">Adaptive campaigns that improve weekly.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ranking Proof -->
+        <section class="py-16 md:py-24">
+             <div class="container mx-auto px-6 text-center fade-in-section">
+                <h2 class="text-3xl md:text-4xl font-bold section-title">We Don’t Just Claim Results — We Show Them.</h2>
+                <p class="mt-4 text-lg max-w-3xl mx-auto text-gray-600">
+                    Here’s how our clients rank today in Google & AI-powered searches with AbacusDesk’s AI-SEO.
+                </p>
+                <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="glass-card p-4 animate-item">
+                        <svg viewBox="0 0 400 300" class="w-full rounded-xl bg-white">
+                            <text x="20" y="35" font-family="Inter, sans-serif" font-size="16" fill="#343a40" font-weight="bold">AI Search Rankings</text>
+                            <rect x="20" y="60" width="360" height="2" fill="#eef1f5"/>
+                            <path d="M 40 250 Q 100 150, 160 180 T 280 160 T 360 100" stroke="#ef9b11" stroke-width="4" fill="none" stroke-linecap="round"/>
+                            <text x="40" y="270" font-family="Inter" font-size="12" fill="#495057">Jan</text>
+                            <text x="150" y="270" font-family="Inter" font-size="12" fill="#495057">Feb</text>
+                            <text x="260" y="270" font-family="Inter" font-size="12" fill="#495057">Mar</text>
+                            <text x="350" y="270" font-family="Inter" font-size="12" fill="#495057">Apr</text>
+                        </svg>
+                    </div>
+                    <div class="glass-card p-4 animate-item" style="transition-delay: 200ms;">
+                        <svg viewBox="0 0 400 300" class="w-full rounded-xl bg-white">
+                            <text x="20" y="35" font-family="Inter, sans-serif" font-size="16" fill="#343a40" font-weight="bold">Organic Traffic Growth</text>
+                            <g fill="#ef9b11" opacity="0.7">
+                                <rect x="50" y="150" width="50" height="100" rx="4"/>
+                                <rect x="150" y="120" width="50" height="130" rx="4"/>
+                                <rect x="250" y="80" width="50" height="170" rx="4"/>
+                                <rect x="350" y="50" width="50" height="200" rx="4"/>
+                            </g>
+                            <line x1="20" y1="250" x2="380" y2="250" stroke="#eef1f5" stroke-width="2"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Case Studies -->
+        <section class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto fade-in-section">
+                    <h2 class="text-3xl md:text-4xl font-bold section-title">Real Clients. Real Growth.</h2>
+                </div>
+                <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-gray-50 p-8 rounded-2xl border border-gray-200 animate-item hover:-translate-y-2 transition-transform duration-300">
+                        <h3 class="text-xl font-bold">Plywood Brand</h3>
+                        <p class="mt-2 text-lg"><span class="font-bold primary-text">122% traffic growth</span> in 6 months with AI-optimized content.</p>
+                    </div>
+                    <div class="bg-gray-50 p-8 rounded-2xl border border-gray-200 animate-item hover:-translate-y-2 transition-transform duration-300" style="transition-delay: 150ms;">
+                        <h3 class="text-xl font-bold">Tech SaaS Company</h3>
+                        <p class="mt-2 text-lg"><span class="font-bold primary-text">Ranked in AI search snippets</span> within 45 days.</p>
+                    </div>
+                    <div class="bg-gray-50 p-8 rounded-2xl border border-gray-200 animate-item hover:-translate-y-2 transition-transform duration-300" style="transition-delay: 300ms;">
+                        <h3 class="text-xl font-bold">Bathware Leader</h3>
+                        <p class="mt-2 text-lg"><span class="font-bold primary-text">3x more qualified leads</span> after AI-SEO implementation.</p>
+                    </div>
+                </div>
+                 <div class="mt-12 text-center fade-in-section">
+                    <a href="#" class="inline-block glass-button font-semibold py-3 px-6 text-base rounded-lg">
+                        See More Case Studies
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Lead Capture Section -->
+        <section id="lead-capture" class="py-16 md:py-24 fade-in-section">
+            <div class="container mx-auto px-6">
+                <div class="glass-card max-w-3xl mx-auto p-8 md:p-12">
+                     <div class="text-center" style="margin-bottom: 20px;">
+                        <h2 class="text-3xl md:text-4xl font-bold section-title">See What AI-SEO Can Do for You.</h2>
+                        <p class="mt-4 text-lg text-gray-600">
+                            Get a free AI-SEO strategy audit customized to your industry.
+                        </p>
+                    </div>
+
+
+                    <div id="mauticform_wrapper_abacusdeskaiseoform" class="mauticform_wrapper">
+    <form autocomplete="false" role="form" method="post" action="https://mautic.abacusdesk.co.in/form/submit?formId=24" id="mauticform_abacusdeskaiseoform" data-mautic-form="abacusdeskaiseoform" enctype="multipart/form-data"><div class="mauticform-error" id="mauticform_abacusdeskaiseoform_error"></div>
+            <div class="mauticform-message" id="mauticform_abacusdeskaiseoform_message"></div><div class="mauticform-innerform">
+            <div class="mauticform-page-wrapper mauticform-page-1" data-mautic-form-page="1">
+                  
+
+
+      
+  
+    
+  
+
+    
+
+          
+<div id="mauticform_abacusdeskaiseoform_f_name" class="mauticform-row mauticform-text mauticform-field-1 mauticform-required" data-validate="f_name" data-validation-type="text">
+  
+  
+      <input type="text" name="mauticform[f_name]" value="" id="mauticform_input_abacusdeskaiseoform_f_name" placeholder="Your Name" class="mauticform-input w-full p-4 text-base bg-white/60 border border-white/20 rounded-lg focus:ring-2 focus:ring-primary-color/50 outline-none transition" required>
+  
+  <span class="mauticform-errormsg" style="display:none;">This field is required</span>
+</div>
+                  
+
+
+      
+  
+    
+  
+
+    
+
+          
+<div id="mauticform_abacusdeskaiseoform_email" class="mauticform-row mauticform-email mauticform-field-2 mauticform-required" data-validate="email" data-validation-type="email">
+  
+  
+      <input type="email" name="mauticform[email]" value="" id="mauticform_input_abacusdeskaiseoform_email" placeholder="Business Email" class="mauticform-input w-full p-4 text-base bg-white/60 border border-white/20 rounded-lg focus:ring-2 focus:ring-primary-color/50 outline-none transition" required>
+  
+  <span class="mauticform-errormsg" style="display:none;">This field is required</span>
+</div>
+                  
+
+
+      
+  
+    
+  
+
+    
+
+          
+<div id="mauticform_abacusdeskaiseoform_phone" class="mauticform-row mauticform-tel mauticform-field-3 mauticform-required" data-validate="phone" data-validation-type="tel">
+  
+  
+      <input type="tel" minlength="10" maxlength="10" name="mauticform[phone]" value="" id="mauticform_input_abacusdeskaiseoform_phone" placeholder="Phone" class="form-control mauticform-input w-full p-4 text-base bg-white/60 border border-white/20 rounded-lg focus:ring-2 focus:ring-primary-color/50 outline-none transition" required>
+  
+  <span class="mauticform-errormsg" style="display:none;">This field is required</span>
+</div>
+                  
+
+
+      
+  
+    
+  
+
+    
+
+          
+<div id="mauticform_abacusdeskaiseoform_company" class="mauticform-row mauticform-text mauticform-field-4 mauticform-required" data-validate="company" data-validation-type="text">
+  
+  
+      <input type="text" name="mauticform[company]" value="" id="mauticform_input_abacusdeskaiseoform_company" placeholder="Company Name" class="form-control mauticform-input w-full p-4 text-base bg-white/60 border border-white/20 rounded-lg focus:ring-2 focus:ring-primary-color/50 outline-none transition" required>
+  
+  <span class="mauticform-errormsg" style="display:none;">This field is required</span>
+</div>
+                  
+
+
+      
+  
+    
+  
+
+    
+
+
+<div id="mauticform_abacusdeskaiseoform_website" class="mauticform-row mauticform-url mauticform-field-5">
+  
+  
+      <input type="url" name="mauticform[website]" value="" id="mauticform_input_abacusdeskaiseoform_website" placeholder="Website URL (https://)" class="form-control mauticform-input w-full p-4 text-base bg-white/60 border border-white/20 rounded-lg focus:ring-2 focus:ring-primary-color/50 outline-none transition">
+  
+  <span class="mauticform-errormsg" style="display:none;"></span>
+</div>
+                  <div id="mauticform_abacusdeskaiseoform_industry" class="mauticform-row mauticform-select mauticform-field-6">
+    
+  <select name="mauticform[industry]" value="" id="mauticform_input_abacusdeskaiseoform_industry" placeholder="Select Industry" class="form-select mauticform-selectbox w-full p-4 text-base bg-white/60 border border-white/20 rounded-lg focus:ring-2 focus:ring-primary-color/50 outline-none transition appearance-none">
+    <option value="">Select Industry</option>    <option value="Plywood">Plywood</option>      <option value="Bathware">Bathware</option>      <option value="Software &amp; IT">Software &amp; IT</option>      <option value="Manufacturing">Manufacturing</option>      <option value="Automotive">Automotive</option>      <option value="Tech">Tech</option>      <option value="Other">Other</option>  
+  </select>
+  <span class="mauticform-errormsg" style="display:none;"></span>
+</div>
+                  
+      
+  
+    
+    
+<div id="mauticform_abacusdeskaiseoform_submit" class="mauticform-row mauticform-button-wrapper mauticform-field-7">
+  <button class="w-full primary-button font-bold py-4 px-8 text-lg rounded-xl" name="mauticform[submit]" value="1" id="mauticform_input_abacusdeskaiseoform_submit" type="submit">Book My Free Audit</button>
+</div>
+                  </div></div><input type="hidden" name="mauticform[formId]" id="mauticform_abacusdeskaiseoform_id" value="24">
+        <input type="hidden" name="mauticform[return]" id="mauticform_abacusdeskaiseoform_return" value="">
+        <input type="hidden" name="mauticform[formName]" id="mauticform_abacusdeskaiseoform_name" value="abacusdeskaiseoform">
+        
+    </form>
+</div>
+
+
+
+                    <!-- <form class="mt-10 space-y-6">
+                        <input type="text" placeholder="Name" class="w-full p-4 text-base bg-white/60 border border-white/20 rounded-lg focus:ring-2 focus:ring-primary-color/50 outline-none transition">
+                        <input type="email" placeholder="Business Email" class="w-full p-4 text-base bg-white/60 border border-white/20 rounded-lg focus:ring-2 focus:ring-primary-color/50 outline-none transition">
+                        <input type="text" placeholder="Company Name" class="w-full p-4 text-base bg-white/60 border border-white/20 rounded-lg focus:ring-2 focus:ring-primary-color/50 outline-none transition">
+                        <input type="url" placeholder="Website URL" class="w-full p-4 text-base bg-white/60 border border-white/20 rounded-lg focus:ring-2 focus:ring-primary-color/50 outline-none transition">
+                        <select class="w-full p-4 text-base bg-white/60 border border-white/20 rounded-lg focus:ring-2 focus:ring-primary-color/50 outline-none transition appearance-none">
+                            <option>Select Industry</option>
+                            <option>Plywood</option>
+                            <option>Bathware</option>
+                            <option>Software & IT</option>
+                            <option>Manufacturing</option>
+                            <option>Automotive</option>
+                            <option>Tech</option>
+                             <option>Other</option>
+                        </select>
+                        <button type="submit" class="w-full primary-button font-bold py-4 px-8 text-lg rounded-xl">
+                            Book My Free Audit
+                        </button>
+                    </form> -->
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-6 max-w-3xl fade-in-section">
+                <h2 class="text-3xl md:text-4xl font-bold text-center section-title">Frequently Asked Questions</h2>
+                <div class="mt-10 space-y-6">
+                    <div class="border border-gray-200 p-6 rounded-2xl" x-data="{ open: false }">
+                        <button @click="open = !open" class="w-full flex justify-between items-center text-left">
+                            <span class="text-lg font-semibold">How is AI-SEO different from regular SEO?</span>
+                            <span class="text-2xl primary-text transition-transform duration-300 ease-in-out" :class="{ 'rotate-45': open }">+</span>
+                        </button>
+                        <div x-show="open" x-collapse.duration.500ms class="mt-4 text-gray-600">
+                            <p>AI-SEO optimizes for both Google and AI engines like ChatGPT, ensuring future-ready visibility. It focuses on conversational queries and semantic context to match the way AI models process information.</p>
+                        </div>
+                    </div>
+                     <div class="border border-gray-200 p-6 rounded-2xl" x-data="{ open: false }">
+                        <button @click="open = !open" class="w-full flex justify-between items-center text-left">
+                            <span class="text-lg font-semibold">How soon can I see results?</span>
+                             <span class="text-2xl primary-text transition-transform duration-300 ease-in-out" :class="{ 'rotate-45': open }">+</span>
+                        </button>
+                        <div x-show="open" x-collapse.duration.500ms class="mt-4 text-gray-600">
+                            <p>Most clients see noticeable growth within 30–60 days, faster than traditional SEO. This is because our AI-driven approach quickly identifies high-impact opportunities.</p>
+                        </div>
+                    </div>
+                     <div class="border border-gray-200 p-6 rounded-2xl" x-data="{ open: false }">
+                        <button @click="open = !open" class="w-full flex justify-between items-center text-left">
+                            <span class="text-lg font-semibold">Will it work for my industry?</span>
+                             <span class="text-2xl primary-text transition-transform duration-300 ease-in-out" :class="{ 'rotate-45': open }">+</span>
+                        </button>
+                        <div x-show="open" x-collapse.duration.500ms class="mt-4 text-gray-600">
+                            <p>Yes — we’ve already delivered results across plywood, bathware, IT, manufacturing, automotive, and more. The principles of AI-SEO are adaptable to any niche because they are based on how users search, regardless of the industry.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Closing Section -->
+        <section class="py-20 md:py-32 fade-in-section">
+             <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-5xl font-extrabold section-title leading-tight">
+                    Be Seen Where Your Customers Search Next.
+                </h2>
+                <p class="mt-6 text-lg md:text-xl max-w-3xl mx-auto text-gray-600">
+                    Don’t wait for your competitors to take the AI-SEO lead.
+                </p>
+                <div class="mt-10">
+                    <a href="#lead-capture" class="inline-block primary-button font-bold py-4 px-8 text-lg rounded-xl">
+                        Start My Free AI-SEO Audit Today
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <!-- Footer -->
+    <footer class="py-8">
+        <div class="container mx-auto px-6 text-center text-gray-500">
+            <p>&copy; 2024 AbacusDesk. All Rights Reserved.</p>
+        </div>
+    </footer>
+    
+    <!-- Alpine.js for FAQ toggle -->
+     <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://unpkg.com/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+    
+
+    <!-- JS for scroll animations & header -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Scroll-triggered animations
+            const animatedItems = document.querySelectorAll('.fade-in-section, .animate-item');
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            animatedItems.forEach(item => {
+                observer.observe(item);
+            });
+
+            // Header scroll effect
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+        });
+    </script>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const form = document.getElementById("mauticform_abacusdeskaiseoform");
+  const submitBtn = document.getElementById("mauticform_input_abacusdeskaiseoform_submit");
+
+  if (form && submitBtn) {
+    form.addEventListener("submit", function() {
+      // Disable the button and show loading state
+      submitBtn.disabled = true;
+      submitBtn.innerText = "Submitting...";
+      submitBtn.classList.add("opacity-70", "cursor-not-allowed");
+    });
+
+    // Triggered when Mautic submission succeeds
+    document.addEventListener("mauticformSubmitSuccess", function(event) {
+      if (event.detail && event.detail.formId == 24) {
+        submitBtn.innerText = "Submitted ✅";
+        submitBtn.classList.add("bg-green-500");
+        // ✅ Let Mautic handle the redirection automatically
+        // (no need to use window.location.href)
+      }
+    });
+
+    // Triggered when Mautic submission fails (validation or network)
+    document.addEventListener("mauticformSubmitError", function(event) {
+      if (event.detail && event.detail.formId == 24) {
+        submitBtn.disabled = false;
+        submitBtn.innerText = "Book My Free Audit";
+        submitBtn.classList.remove("opacity-70", "cursor-not-allowed", "bg-green-500");
+      }
+    });
+  }
+});
+</script>
+
+
+
+</body>
+</html>

@@ -159,10 +159,39 @@
             animation: slideInUp 0.8s ease-out forwards;
         }
     </style>
+
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17651218884"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-17651218884');
+</script>
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1359563964997371');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1359563964997371&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 </head>
 <body>
-    <div class="blob1"></div>
-    <div class="blob2"></div>
+    <!-- <div class="blob1"></div>
+    <div class="blob2"></div> -->
 
     <!-- Header -->
     <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
@@ -433,30 +462,21 @@
     
 
 
-<div id="mauticform_abacusdeskaiseoform_website" class="mauticform-row mauticform-url mauticform-field-5">
+<div id="mauticform_abacusdeskaiseoform_website1" class="form-control mauticform-row mauticform-text mauticform-field-5 mauticform-required" data-validate="website1" data-validation-type="text">
   
   
-      <input type="url" name="mauticform[website]" value="" id="mauticform_input_abacusdeskaiseoform_website" placeholder="Website URL (https://)" class="form-control mauticform-input w-full p-4 text-base bg-white/60 border border-white/20 rounded-lg focus:ring-2 focus:ring-primary-color/50 outline-none transition">
+      <input type="text" name="mauticform[website1]" value="" id="mauticform_input_abacusdeskaiseoform_website1" placeholder="Website URL (www.)" class="mauticform-input  w-full p-4 text-base bg-white/60 border border-white/20 rounded-lg focus:ring-2 focus:ring-primary-color/50 outline-none transition" required>
   
-  <span class="mauticform-errormsg" style="display:none;"></span>
+  <span class="mauticform-errormsg" style="display:none;">This field is required</span>
 </div>
-                  <div id="mauticform_abacusdeskaiseoform_industry" class="mauticform-row mauticform-select mauticform-field-6">
-    
-  <select name="mauticform[industry]" value="" id="mauticform_input_abacusdeskaiseoform_industry" placeholder="Select Industry" class="form-select mauticform-selectbox w-full p-4 text-base bg-white/60 border border-white/20 rounded-lg focus:ring-2 focus:ring-primary-color/50 outline-none transition appearance-none">
-    <option value="">Select Industry</option>    <option value="Plywood">Plywood</option>      <option value="Bathware">Bathware</option>      <option value="Software &amp; IT">Software &amp; IT</option>      <option value="Manufacturing">Manufacturing</option>      <option value="Automotive">Automotive</option>      <option value="Tech">Tech</option>      <option value="Other">Other</option>  
-  </select>
-  <span class="mauticform-errormsg" style="display:none;"></span>
-</div>
-                  
-      
-  
+
     
     
 <div id="mauticform_abacusdeskaiseoform_submit" class="mauticform-row mauticform-button-wrapper mauticform-field-7">
   <button class="w-full primary-button font-bold py-4 px-8 text-lg rounded-xl" name="mauticform[submit]" value="1" id="mauticform_input_abacusdeskaiseoform_submit" type="submit">Book My Free Audit</button>
 </div>
                   </div></div><input type="hidden" name="mauticform[formId]" id="mauticform_abacusdeskaiseoform_id" value="24">
-        <input type="hidden" name="mauticform[return]" id="mauticform_abacusdeskaiseoform_return" value="">
+        <input type="hidden" name="mauticform[return]" id="mauticform_abacusdeskaiseoform_return" value="https://abacusdesk.com/ai-seo/thank-you.php">
         <input type="hidden" name="mauticform[formName]" id="mauticform_abacusdeskaiseoform_name" value="abacusdeskaiseoform">
         
     </form>
@@ -588,28 +608,90 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
+  // --- Get All Form Elements ---
   const form = document.getElementById("mauticform_abacusdeskaiseoform");
   const submitBtn = document.getElementById("mauticform_input_abacusdeskaiseoform_submit");
+  const allInputs = {
+    name: document.getElementById("mauticform_input_abacusdeskaiseoform_f_name"),
+    email: document.getElementById("mauticform_input_abacusdeskaiseoform_email"),
+    phone: document.getElementById("mauticform_input_abacusdeskaiseoform_phone"),
+    company: document.getElementById("mauticform_input_abacusdeskaiseoform_company"),
+    website: document.getElementById("mauticform_input_abacusdeskaiseoform_website1")
+  };
 
-  if (form && submitBtn) {
-    form.addEventListener("submit", function() {
-      // Disable the button and show loading state
+  // --- Define Validation Patterns ---
+  const patterns = {
+    name: /^[A-Za-z\s]{3,}$/,
+    email: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+    phone: /^\d{10}$/,
+    company: /^[A-Za-z\s]{5,}$/,
+    website: /^(?:https?:\/\/)?(?:www\.)([a-zA-Z0-9\-]+\.)+[a-zA-Z]{2,}(\/[^\s]*)?$/
+  };
+  
+  // --- Helper functions for visual feedback ---
+  const showError = (input, message) => {
+    input.style.border = '2px solid red';
+    alert(message);
+  };
+  const clearError = (input) => {
+    input.style.border = '';
+  };
+
+  if (form && submitBtn && Object.values(allInputs).every(Boolean)) {
+    
+    // Clear error style when user starts typing
+    for (const input of Object.values(allInputs)) {
+      input.addEventListener('input', () => clearError(input));
+    }
+
+    // ---> Using the form 'submit' event from your working script
+    form.addEventListener("submit", function(event) {
+      
+      // ---> Inserting the detailed validation logic here
+      for (const input of Object.values(allInputs)) {
+        clearError(input);
+      }
+
+      if (!patterns.name.test(allInputs.name.value.trim())) {
+        event.preventDefault(); // Stop submission
+        showError(allInputs.name, "Please enter a valid name. Only letters and spaces are allowed.");
+        return;
+      }
+      if (!patterns.email.test(allInputs.email.value.trim())) {
+        event.preventDefault(); // Stop submission
+        showError(allInputs.email, "Please enter a valid business email address.");
+        return; 
+      }
+      if (!patterns.phone.test(allInputs.phone.value.trim())) {
+        event.preventDefault(); // Stop submission
+        showError(allInputs.phone, "Please enter a valid 10-digit phone number.");
+        return;
+      }
+      if (!patterns.company.test(allInputs.company.value.trim())) {
+        event.preventDefault(); // Stop submission
+        showError(allInputs.company, "Please enter a valid company name. This field is required.");
+        return;
+      }
+      if (!patterns.website.test(allInputs.website.value.trim())) {
+        event.preventDefault(); // Stop submission
+        showError(allInputs.website, "Please enter a valid website URL that starts with 'www'. This field is required.");
+        return;
+      }
+
+      // ---> If validation passes, run your button-disabling logic
       submitBtn.disabled = true;
       submitBtn.innerText = "Submitting...";
       submitBtn.classList.add("opacity-70", "cursor-not-allowed");
     });
 
-    // Triggered when Mautic submission succeeds
+    // ---> Keeping your proven Mautic success and error handlers
     document.addEventListener("mauticformSubmitSuccess", function(event) {
       if (event.detail && event.detail.formId == 24) {
         submitBtn.innerText = "Submitted ✅";
         submitBtn.classList.add("bg-green-500");
-        // ✅ Let Mautic handle the redirection automatically
-        // (no need to use window.location.href)
       }
     });
 
-    // Triggered when Mautic submission fails (validation or network)
     document.addEventListener("mauticformSubmitError", function(event) {
       if (event.detail && event.detail.formId == 24) {
         submitBtn.disabled = false;

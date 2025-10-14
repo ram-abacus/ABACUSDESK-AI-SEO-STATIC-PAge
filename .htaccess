@@ -1,0 +1,21 @@
+# Enable URL rewriting
+Options -Indexes
+RewriteEngine On
+RewriteBase /ai-seo/
+
+# Serve index.html as default for the folder
+DirectoryIndex index.html
+
+# --- Redirect /index.html to /ai-seo/ ---
+RewriteCond %{THE_REQUEST} /index\.html [NC]
+RewriteRule ^index\.html$ /ai-seo/ [R=301,L]
+
+# --- Redirect any .html page to clean URL ---
+RewriteCond %{THE_REQUEST} /([^.]+)\.html [NC]
+RewriteRule ^([^.]+)\.html$ /ai-seo/$1 [R=301,L]
+
+# --- Internally rewrite clean URLs to .html files ---
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^(.*)$ $1.html [L]
